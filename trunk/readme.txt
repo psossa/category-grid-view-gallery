@@ -63,6 +63,8 @@ for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgvie
 
 2. The plugin in action
 
+3. Post opened inside a lightbox
+
 == Changelog ==
 **0.1.0**
 
