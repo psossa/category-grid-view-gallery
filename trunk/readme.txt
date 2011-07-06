@@ -26,7 +26,7 @@ This plugin provides a new way to build your Portfolios and Photo Galleries. Peo
     
 *   USAGE: Perfect for making a Photogallery or Portfolio with description written along with the image in a blog post. Also a unique way of displaying your FEATURED posts on your home page.
 
-Check out the <a href=\"http://shabdcreatives.com/portfolio\" target=\"_blank\" title=\"Demo CGView\">Demo</a> to see it in action.
+Check out the Demo <a href=\"http://shabdcreatives.com/portfolio\" target=\"_blank\" title=\"Demo CGView\">HERE</a>  or <a href=\"http://blog.anshulsharma.in/always-n-forever-season-1\" target=\"_blank\" title=\"Demo CGView\">HERE</a> to see it in action.
 
 For a full list of options and support, visit <a href=\"http://anshulsharma.in\" target=\"_blank\" title=\"Anshul Sharma\"> Authors website</a>
 
