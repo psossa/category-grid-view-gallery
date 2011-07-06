@@ -55,7 +55,7 @@ For a full list of options and support, visit <a href=\"http://www.evilgenius.a
 == Frequently Asked Questions ==
 
 **Q. I cannot see the thumbnail images. Why is it so?**  
-A. It may be because the cache folder used to store the generated thumbnails is not writable on your server. Go to the *Plugin_Dir/catgrid/ *and change the folder permission of the cache folder to 755 or 777.
+A. It may be because the cache folder used to store the generated thumbnails is not writable on your server. Go to the *Plugin_Dir/category-grid-view-gallery/ *and change the folder permission of the cache folder to 755 or 777.
 
 for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgview\" target=\"_blank\">plugin homepage</a>
 == Screenshots ==
@@ -66,6 +66,10 @@ for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgvie
 3. Post opened inside a lightbox
 
 == Changelog ==
+**0.1.0**
+
+- Links Updated
+
 **0.1.0**
 
 - Fixed the issue of colorbox opening too small when images in the content load slowly.

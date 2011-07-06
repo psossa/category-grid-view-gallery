@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Category Grid View Gallery
-Plugin URI: http://anshulsharma.in/cgview
+Plugin URI: http://evilgenius.anshulsharma.in/cgview
 Description: This plugin provides a new way to build your Portfolios and Photo Galleries. People who want to show their work using a gallery/portfolio dont have to exclusively install a plugin and upload images on it. Now, you can just upload your work as a blog post every now and then and this plugin will take care of the rest. Usage: Put the [cgview id='xxx'] where you want it to appear.
-Version: 0.1.0
+Version: 0.1.1
 Author: Anshul Sharma
 Author URI: http://anshulsharma.in/
 */
@@ -88,8 +88,8 @@ $wp_plugin_url = $wp_content_url . '/plugins';
 $wp_plugin_dir = $wp_content_dir . '/plugins';
 $wpmu_plugin_url = $wp_content_url . '/mu-plugins';
 $wpmu_plugin_dir = $wp_content_dir . '/mu-plugins';
-$cg_url = $wp_plugin_url . '/catgrid';
-$cg_dir = $wp_plugin_dir . '/catgrid';
+$cg_url = $wp_plugin_url . '/category-grid-view-gallery';
+$cg_dir = $wp_plugin_dir . '/category-grid-view-gallery';
 
 }
  
