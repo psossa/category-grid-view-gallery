@@ -76,7 +76,7 @@ Author : Anshul Sharma (contact@anshulsharma.in)
 		//uses TimThumb to generate thumbnails on the fly	
 		global $cg_url;	
 		$returnlink = ($this->params['lightbox'])? ('"'.$cg_url.'/includes/CatGridPost.php?ID='.$single->ID.'" class="cgpost"') : ('"'.get_permalink($single->ID)).'"';	
-		return '<a href='.$returnlink.'><img src="'.plugins_url().'/catgrid/includes/timthumb.php?src='.$cg_img.'&h='.$size[1].'&w='.$size[0].'&zc=1&q='.$this->params['quality'].'" alt="'.$single->post_title.'" title="'.$single->post_title.'"/></a>';
+		return '<a href='.$returnlink.'><img src="'.$cg_url.'/includes/timthumb.php?src='.$cg_img.'&h='.$size[1].'&w='.$size[0].'&zc=1&q='.$this->params['quality'].'" alt="'.$single->post_title.'" title="'.$single->post_title.'"/></a>';
 		
 
 	}
