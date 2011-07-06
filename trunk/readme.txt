@@ -30,7 +30,7 @@ Check out the <a href=\"http://shabdcreatives.com/portfolio\" target=\"_blank\" 
 
 For a full list of options and support, visit <a href=\"http://anshulsharma.in\" target=\"_blank\" title=\"Anshul Sharma\"> Authors website</a>
 
-For suggestions/feedback and requesting new features <a href=\"http://anshulsharma.in/cgview\" target=\"_blank\">visit here</a>
+For suggestions/feedback and requesting new features <a href=\"http://www.evilgenius.anshulsharma.in/cgview\" target=\"_blank\">visit here</a>
 
 *Inspired by the <a href=\"http://wordpress.org/extend/plugins/list-category-posts/\" target=\"_blank\">List Category Posts</a> plugin by Fernandobt*
 
@@ -51,13 +51,13 @@ Future Features planned :
 
 use the above shortcode to display the gallery anywhere in your content.
 
-For a full list of options and support, visit <a href=\"http://anshulsharma.in/\" target=\"_blank\" title=\"Anshul Sharma\"> Authors website</a>
+For a full list of options and support, visit <a href=\"http://www.evilgenius.anshulsharma.in/\" target=\"_blank\" title=\"Anshul Sharma\"> Authors website</a>
 == Frequently Asked Questions ==
 
 **Q. I cannot see the thumbnail images. Why is it so?**  
 A. It may be because the cache folder used to store the generated thumbnails is not writable on your server. Go to the *Plugin_Dir/catgrid/ *and change the folder permission of the cache folder to 755 or 777.
 
-for more support visit the <a href=\"http://anshulsharma.in/cgview\" target=\"_blank\">plugin homepage</a>
+for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgview\" target=\"_blank\">plugin homepage</a>
 == Screenshots ==
 1. The shortcodes, how to use them.
 
