@@ -66,7 +66,12 @@ for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgvie
 3. Post opened inside a lightbox
 
 == Changelog ==
-**0.1.0**
+**0.2.0**
+
+- Timthumb security vulnerablility fixed With the latest version of TimThumb script.
+ 
+
+**0.1.1**
 
 - Links Updated
 
