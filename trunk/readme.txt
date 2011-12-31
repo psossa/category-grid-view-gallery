@@ -14,7 +14,8 @@ This plugin provides a new way to build your Portfolios and Photo Galleries. Peo
 
 *   Uses the [cgview] shortcode. 
 
-~New in version 2~
+** New in version 2 **
+
 *   Admin Settings panel and a Shortcode Generator.
 *   Pagination
 *   Option of choosing Featured image/First Image from post as thumnail.
@@ -23,7 +24,7 @@ This plugin provides a new way to build your Portfolios and Photo Galleries. Peo
 *   Light and Dark Themes.
 *   Option to pick alternate title for thumbnail from custom fields instead of post titles.
 *   Easily integrated into any template with a shortcode and a template tag.
-~
+
 
     
 *   Flexible. Through shortcode, user can control which category to show, the number of posts to show, the posts to exclude, the size of the thumbnail, whether or not to show the title, how to order them, quality of thumbnails, show posts only with specific tags and many more.
