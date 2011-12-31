@@ -2,13 +2,13 @@
 /*
 Plugin Name: Category Grid View Gallery
 Plugin URI: http://evilgenius.anshulsharma.in/cgview
-Description: This plugin provides a new way to build your Portfolios and Photo Galleries. People who want to show their work using a gallery/portfolio dont have to exclusively install a plugin and upload images on it. Now, you can just upload your work as a blog post every now and then and this plugin will take care of the rest. Usage: Put the [cgview id='xxx'] where you want it to appear.
-Version: 0.2
+Description: Display your blog posts differently. This plugin provides a new way to build your Portfolios and Photo Galleries. People who want to show their work using a gallery/portfolio dont have to exclusively install a plugin and upload images on it. Now, you can just upload your work as a blog post every now and then and this plugin will take care of the rest. Usage: Put the [cgview id='xxx'] where you want it to appear. Lots of customizations.
+Version: 2.0
 Author: Anshul Sharma
 Author URI: http://anshulsharma.in/
 */
 
-/* Copyright 2011  Anshul Sharma  (email : contact@anshulsharma.in)
+/* Copyright 2012  Anshul Sharma  (email : contact@anshulsharma.in)
 
 This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -29,6 +29,14 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('Sorr
 
 
 require_once 'includes/CatGridView.php';
+if(is_admin()) {
+require_once 'includes/Settings.php';
+require_once 'includes/Options.php';
+}
+define('PLUGIN_AUTHOR', 'Anshul Sharma');
+define('PLUGIN_VERSION', '2.0');
+define('AUTHOR_URI','http://evilgenius.anshulsharma.in/');
+define('PLUGIN_URI','http://evilgenius.anshulsharma.in/cgview');
 
 class CatGrid{
     /* Get the parameters from shortcodes,
@@ -40,14 +48,18 @@ class CatGrid{
                             'name' => '',
                             'orderby' => 'date',
                             'order' => 'desc',
-                            'num' => '5',
+                            'num' => '-1',
                             'excludeposts' => '0',
                             'offset' => '0',
 							'tags' => '',
                             'size' => 'thumbnail',
 							'quality' => '75',
-							'showtitle' => '1',
-							'lightbox' => '1'
+							'showtitle' => 'hover',
+							'lightbox' => '1',
+							'paginate' => '0',
+							'customfield' => '',
+							'customfieldvalue' => '',
+							'title' => ''
                     ), $atts);
 
        		global $cg_output;
@@ -90,7 +102,8 @@ $wpmu_plugin_url = $wp_content_url . '/mu-plugins';
 $wpmu_plugin_dir = $wp_content_dir . '/mu-plugins';
 $cg_url = $wp_plugin_url . '/category-grid-view-gallery';
 $cg_dir = $wp_plugin_dir . '/category-grid-view-gallery';
-
+define('CGVIEW_URL', $cg_url);
+define('CGVIEW_DIR', $cg_dir);
 }
  
 /*URL and DIR locations end*/
@@ -100,27 +113,33 @@ function enqueue_cg_styles() {
 	$cgStyleUrl = $cg_url . '/css/style.css';
         $cgStyleFile = $cg_dir . '/css/style.css';
         if ( file_exists($cgStyleFile) ) {
+			if(!is_admin()){
             wp_register_style('CatGridStyleSheets', $cgStyleUrl);
             wp_enqueue_style( 'CatGridStyleSheets');
+			}
         }
+
  } 
 
 function enqueue_cg_scripts() {
 	global $cg_url,$cg_dir,$cg_output;
+	if(!is_admin()){
 	    if ( file_exists($cg_dir . '/js/cgview.js') ) {
       		wp_enqueue_script( 'CatGridjs', $cg_url . '/js/cgview.js', array( 'jquery' ));
         }
 		if ( file_exists($cg_dir . '/js/jquery.colorbox-min.js')) {
       		wp_enqueue_script( 'Colorbox', $cg_url . '/js/jquery.colorbox-min.js', array( 'jquery' ));
         }
-		
+		if ( file_exists($cg_dir . '/js/easypaginate.min.js')) {
+      		wp_enqueue_script( 'EasyPaginate', $cg_url . '/js/easypaginate.min.js', array( 'jquery' ));
+        }
+	}
 }     
-
- 
 
 add_action( 'wp_print_scripts', 'enqueue_cg_scripts' );
 add_action( 'wp_print_styles', 'enqueue_cg_styles' );
 add_action( 'init', 'cg_set_locations' );
+add_action( 'wp_print_footer_scripts', 'cg_init_js' );
 
 
 add_shortcode( 'cgview', array('CatGrid', 'cat_grid') );

@@ -1,66 +1,105 @@
 div.cgview{
 	list-style-type: none; 
 	clear:both;
-	display:block;
-	float:left;
+	text-align:center;
 }
 
 div.cgview ul{
-	float:left;
-	margin:0;
+	margin-left:-10px;
 	list-style-type: none; 
+	clear:both;
+	overflow:hidden;
 }
 
 
-div.cgview ul li{float:left; font-weight:bold;text-align:center;margin:10px 0 0 10px;
+div.cgview ul li{font-weight:bold;text-align:center;margin:10px 0 0 10px;
 					-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;
 				}
 div.cgview ul li{
+	display:inline-block;
 	position:relative;
-	border:4px double #aaa;
+	border:4px double;
 	overflow:hidden;
 	
 }
 
-div.cgview ul li:hover {border:4px solid #ccc;}
+div.cgview ul li:hover {border:4px solid;}
 div.cgview ul li div#cgtitle{height:0%;overflow:hidden;z-index:3;position:absolute;bottom:0;left:0;width:inherit;}
 div.cgview ul li div#cgtitle p{width:inherit;}
 div.cgview ul li div#cgback{
 					height:0%;overflow:hidden;z-index:2;position:absolute;bottom:0;left:0;width:inherit;
-					background-color:#000000;
 					filter:alpha(opacity=60);
  					opacity:0.6;
 }
-div.cgview ul li div#cgtitle p a{color:#fff;font-family:Geneva, Arial, Helvetica, sans-serif;text-decoration:none;}
+div.cgview ul li div#cgtitle p a{font-family:Geneva, Arial, Helvetica, sans-serif;text-decoration:none;}
+
+/* Light Theme */
+div.cgview.light ul li{border-color: #aaa;}
+div.cgview.light ul li:hover{border-color: #ccc;}
+div.cgview.light ul li div#cgback{background-color:#fff;}
+div.cgview.light ul li div#cgtitle p a{color:#000;}
+
+/* Dark Theme */
+div.cgview.dark ul li{border-color: #777;}
+div.cgview.dark ul li:hover{border-color: #555;}
+div.cgview.dark ul li div#cgback{background-color:#000;}
+div.cgview.dark ul li div#cgtitle p a{color:#fff;}
+
 
 /* CSS hover Fallback Strategy : In a case when Javascript is not loaded/disabled,
 	the plugin falls back to a pure css hover effect. */
 
-div.cgview ul li div#cgback.cgnojs{
+div.cgview ul li div#cgback.cgnojs.hover, div.cgview ul li div#cgback.cgnojs.never{
 	display:none;
 	height:35%;
 }
-div.cgview ul li div#cgtitle.cgnojs{
+div.cgview ul li div#cgtitle.cgnojs.hover, div.cgview ul li div#cgtitle.cgnojs.never{
 	display:none;
 	height:32%;
 }
-div.cgview ul li:hover > div#cgback.cgnojs, div.cgview ul li:hover > div#cgtitle.cgnojs{
+div.cgview ul li div#cgback.always{
+	display:block;
+	height:35%;
+}
+div.cgview ul li div#cgtitle.always{
+	display:block;
+	height:32%;
+}
+div.cgview ul li:hover > div#cgback.cgnojs.hover, div.cgview ul li:hover > div#cgtitle.cgnojs.hover{
 	display: block;
 }
+div#cg-credits{font-family:Arial, Helvetica, sans-serif;font-size:80%;color:#777; text-align:right;}
+div#cg-credits a{color: #3366CC; text-decoration:none;}
+/*Pagination Controls style */
+ol#cg-page-controls{clear:both;position:relative;margin:0 0 0 -2px;}
+	ol#cg-page-controls li{
+		display:inline-block;
+		position:relative;
+		width:16px;
+		height:16px;
+		background:url(images/bg_buttons.png) no-repeat 0 0;
+		text-indent:-8000px;
+		list-style:none;
+		cursor:pointer;
+		margin:0 2px;
+		}
+	ol#cg-page-controls li:hover{background:url(images/bg_buttons.png) no-repeat 0 -16px;}
+	ol#cg-page-controls li.current{color:#f00;font-weight:bold;background:url(images/bg_buttons.png) no-repeat 0 -32px;}
+	/*ol#cg-page-controls li.prev, ol#cg-page-controls li.next{		}*/
+	ol#cg-page-controls li.prev{background:url(images/bg_buttons.png) no-repeat 0 -64px;}
+	ol#cg-page-controls li.next{background:url(images/bg_buttons.png) no-repeat 0 -48px;}
 
 /* Style for the Post Popup when Lightbox is used to display posts */
 
-#cg-post-container{
-	width: 700px;
-}
+#cg-post-container{color:#000;}
 #cg-post-title {
 width:inherit;font-family: Geneva, Arial, Helvetica, sans-serif; font-weight:bold; font-size:180%;
 padding-bottom:10px; text-align:center;
 }
-#cg-post-title a{color:#000000; text-decoration:none;}
+#cg-post-title a{text-decoration:none;color:#333;}
 #cg-post-content{
 }	
-	
+
 	
 /*
     ColorBox Core Style:
@@ -77,10 +116,8 @@ padding-bottom:10px; text-align:center;
 .cboxPhoto{float:left; margin:auto; border:0; display:block;}
 .cboxIframe{width:100%; height:100%; display:block; border:0;}
 
-/* 
-    User Style:
-    Change the following styles to modify the appearance of ColorBox.  They are
-    ordered & tabbed in a way that represents the nesting of the generated HTML.
+/*  User Style:
+    Change the following styles to modify the appearance of ColorBox.
 */
 #cboxOverlay{background:#fff;}
 #colorbox{}
@@ -100,7 +137,7 @@ padding-bottom:10px; text-align:center;
         #cboxSlideshow{position:absolute; bottom:0px; right:42px; color:#444;}
         #cboxPrevious{position:absolute; bottom:0px; left:0; color:#444;}
         #cboxNext{position:absolute; bottom:0px; left:63px; color:#444;}
-        #cboxLoadingOverlay{background:#fff url(images/loading.gif) no-repeat 5px 5px;}
+        #cboxLoadingOverlay{background:#fff url(images/loading.gif) no-repeat center center;}
         #cboxClose{position:absolute; top:0; right:0; display:block; color:#444;}
 
 /*
