@@ -14,7 +14,7 @@ This plugin provides a new way to build your Portfolios and Photo Galleries. Peo
 
 *   Uses the [cgview] shortcode. 
 
-** New in version 2 **
+**New in version 2**
 
 *   Admin Settings panel and a Shortcode Generator.
 *   Pagination
