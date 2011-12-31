@@ -36,13 +36,15 @@ class CatGridData{
 	
         //Build the query for get_posts()
         $cgquery = 'cat=' . $this->cgid .
-								'&numberposts=' . $this->params['num'] .
+								'&posts_per_page=' . $this->params['num'] .
                                 '&orderby=' . $this->params['orderby'] .
                                 '&order=' . $this->params['order'] .
                                 '&exclude=' . $this->params['excludeposts'] .
                                 '&tag=' . $this->params['tags'] .
-                                '&offset=' . $this->params['offset'];
-		
+                                '&offset=' . $this->params['offset'].
+								'&meta_key=' . $this->params['customfield'].
+								'&meta_value=' . $this->params['customfieldvalue'];
+
 		$this->cgposts = get_posts($cgquery);
        
     }

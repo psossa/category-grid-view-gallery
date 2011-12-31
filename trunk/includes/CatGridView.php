@@ -26,14 +26,17 @@ Author : Anshul Sharma (contact@anshulsharma.in)
     }
 	
 	 private function cg_build_output(){
-	    $this->cgoutput='<div class="cgview">';
-		$this->cgoutput.= '<ul>'."\n"; 
+	 	global $paginateVal;
+	 	$this->cgoutput='<div class="cgview '.get_cg_option('color_scheme').'">';
+		$this->cgoutput.= '<ul id="cg-ul">'."\n"; 
         //Posts loop
         foreach ($this->cgdata->cg_get_posts() as $single):
                 $this->cgoutput .= $this->cg_build_item($single)."\n";
         endforeach;
-		$this->cgoutput.= '</ul></div>'."\n";
-		
+		$this->cgoutput.= '</ul>';
+		if(get_cg_option('credits')){ $this->cgoutput.= '<div id="cg-credits">Powered by <a href="'.PLUGIN_URI.'" target="_blank">CGView</a></div>'; }
+		$this->cgoutput.= '</div>'."\n";
+		$paginateVal = $this->params['paginate'];
     }
 
     /*
@@ -47,7 +50,7 @@ Author : Anshul Sharma (contact@anshulsharma.in)
 		
         $cgitem.= $this->cg_get_image($single);
 		
-		if(((int)$size[0]>=100||(int)$size[1]>=100) && $this->params['showtitle'])
+		if(((int)$size[0]>=100||(int)$size[1]>=100))
 		$cgitem.= $this->cg_get_title($single);
 		
 		$cgitem.= '</li>';
@@ -61,11 +64,23 @@ Author : Anshul Sharma (contact@anshulsharma.in)
 		$cg_img = '';
   		ob_start();
   		ob_end_clean();
- 		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $single->post_content, $matches);
- 		$cg_img = $matches [1] [0];
+		if(get_cg_option('image_source')=='featured'){
+			if (has_post_thumbnail($single->ID )){
+				$image = wp_get_attachment_image_src(get_post_thumbnail_id( $single->ID ), 'single-post-thumbnail' );
+				$cg_img = $image[0];
+			}
+			else {
+				$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $single->post_content, $matches);
+ 				$cg_img = $matches [1] [0];
+			}
+		}
+		else {
+ 			$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $single->post_content, $matches);
+ 			$cg_img = $matches [1] [0];
+		}
 
   		if(empty($cg_img)){ //Defines a default image
-    			$cg_img = "/default.jpg";
+    			$cg_img = get_cg_option('custom_image');
 		}
 		
 		$size=array();
@@ -83,9 +98,15 @@ Author : Anshul Sharma (contact@anshulsharma.in)
 	
 	private function cg_get_title($single){
 		global $cg_url;	
+		if($this->params['title']){
+			$title_array = get_post_meta($single->ID, $this->params['title']);
+			$title = $title_array[0];
+			if(!$title){$title = $single->post_title;}
+		}
+		else { $title = $single->post_title;}
 		$returnlink = ($this->params['lightbox'])? ('"'.$cg_url.'/includes/CatGridPost.php?ID='.$single->ID.'" class="cgpost"') : ('"'.get_permalink($single->ID)).'"';
 		$cgfontsize=$this->cg_get_font_size();
-		$cgtitle='<div id="cgback" class="cgnojs"></div><div id="cgtitle" class="cgnojs"><p style="font-size:'.$cgfontsize.'px;line-height:'.(1.2*$cgfontsize).'px;"><a href='.$returnlink.'>'.$single->post_title.'</a></p></div>';
+		$cgtitle='<div id="cgback" class="cgnojs '.$this->params['showtitle'].'"></div><div id="cgtitle" class="cgnojs '.$this->params['showtitle'].'"><p style="font-size:'.$cgfontsize.'px;line-height:'.(1.2*$cgfontsize).'px;"><a href='.$returnlink.'>'.$title.'</a></p></div>';
 		return $cgtitle;
 	}
 	
@@ -129,4 +150,20 @@ Author : Anshul Sharma (contact@anshulsharma.in)
 	}
 	
 }
-	
+
+ function cg_init_js(){
+ global $paginateVal;
+?>
+    <script type="text/javascript" language="javascript">
+    <?php
+    echo 'paginateVal = '.$paginateVal.';';
+    ?>
+    </script>
+<?php 
+   do_action('cg_init_js');
+}
+
+function get_cg_option($option) {
+  $get_cgview_options = get_option('cgview');
+  return $get_cgview_options[$option];
+}
