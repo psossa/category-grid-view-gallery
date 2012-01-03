@@ -79,7 +79,13 @@ for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgvie
 
 == Changelog ==
 
-**2.0.0**
+
+** 2.2 **
+
+- Fixed jquery conflict with other lightbox plugins.
+
+
+** 2.0.0 **
 
 - Admin Panel and Shortcode generator added.
 - Pagination
@@ -89,19 +95,19 @@ for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgvie
 - Light and Dark Themes.
 - Option to pick alternate title for thumbnail from custom fields instead of post titles.
 
-**0.2.0**
+** 0.2.0 **
 
 - Timthumb security vulnerablility fixed With the latest version of TimThumb script.
  
 
-**0.1.1**
+** 0.1.1 **
 
 - Links Updated
 
-**0.1.0**
+** 0.1.0 **
 
 - Fixed the issue of colorbox opening too small when images in the content load slowly.
 
  
 
-**Beta**
+** Beta **
