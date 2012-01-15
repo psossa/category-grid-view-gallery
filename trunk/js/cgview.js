@@ -5,17 +5,15 @@ jQuery(document).ready(function($) {
 	$("div.cgview ul li div").removeClass("cgnojs");
 							
   $("div.cgview li").mouseenter(function(){
-	var e = document.getElementById(this.id); 
-  	var d = e.getElementsByTagName("div");
-	if($(d[0]).attr('class')=='hover'){
+  	var d = this.getElementsByTagName("div");
+	if($(d[0]).attr('class')=='cgback hover'){
 		$(d[0]).stop(true,true).animate({height: '35%'},200);
 		$(d[1]).stop(true,true).animate({height: '32%'},200);
 	}
 	});
   $("div.cgview li").mouseleave(function(){
-	var e = document.getElementById(this.id); 
-  	var d = e.getElementsByTagName("div");
-	if($(d[0]).attr('class')=='hover'){
+  	var d = this.getElementsByTagName("div");
+	if($(d[0]).attr('class')=='cgback hover'){
 		$(d[0]).stop(true,true).animate({height: '0px'},200);
 		$(d[1]).stop(true,true).animate({height: '0px'},200);
 	}

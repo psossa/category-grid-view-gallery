@@ -6,7 +6,7 @@ Author : Anshul Sharma (contact@anshulsharma.in)
  */
 if(!function_exists('get_post'))
 {
-require_once("../../../../wp-config.php");
+require_once("../../../../wp-load.php");
 }
 $thepost = get_post($_GET["ID"]);
 $thecontent = $thepost->post_content;

@@ -44,8 +44,8 @@ class CatGridData{
                                 '&offset=' . $this->params['offset'].
 								'&meta_key=' . $this->params['customfield'].
 								'&meta_value=' . $this->params['customfieldvalue'];
-
-		$this->cgposts = get_posts($cgquery);
+		$tmp_query = new WP_Query;
+		$this->cgposts = $tmp_query->query($cgquery);
        
     }
 

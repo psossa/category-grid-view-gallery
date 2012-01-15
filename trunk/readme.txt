@@ -79,6 +79,11 @@ for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgvie
 
 == Changelog ==
 
+**2.2.1**
+
+- Removed W3C validation errors.
+- bug fixed with CGView query breaking posts loop
+
 
 **2.2**
 
