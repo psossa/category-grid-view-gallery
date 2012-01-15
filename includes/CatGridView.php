@@ -91,7 +91,7 @@ Author : Anshul Sharma (contact@anshulsharma.in)
 		//uses TimThumb to generate thumbnails on the fly	
 		global $cg_url;	
 		$returnlink = ($this->params['lightbox'])? ('"'.$cg_url.'/includes/CatGridPost.php?ID='.$single->ID.'" class="cgpost"') : ('"'.get_permalink($single->ID)).'"';	
-		return '<a href='.$returnlink.'><img src="'.$cg_url.'/includes/timthumb.php?src='.$cg_img.'&h='.$size[1].'&w='.$size[0].'&zc=1&q='.$this->params['quality'].'" alt="'.$single->post_title.'" title="'.$single->post_title.'"/></a>';
+		return '<a href='.$returnlink.'><img src="'.$cg_url.'/includes/timthumb.php?src='.urlencode($cg_img).'&amp;h='.$size[1].'&amp;w='.$size[0].'&amp;zc=1&amp;q='.$this->params['quality'].'" alt="'.$single->post_title.'" title="'.$single->post_title.'"/></a>';
 		
 
 	}
@@ -104,9 +104,9 @@ Author : Anshul Sharma (contact@anshulsharma.in)
 			if(!$title){$title = $single->post_title;}
 		}
 		else { $title = $single->post_title;}
-		$returnlink = ($this->params['lightbox'])? ('"'.$cg_url.'/includes/CatGridPost.php?ID='.$single->ID.'" class="cgpost"') : ('"'.get_permalink($single->ID)).'"';
+		$returnlink = ($this->params['lightbox'])? ('"'.$cg_url.'/readme.txt" class="cgpost"') : ('"'.get_permalink($single->ID)).'"';
 		$cgfontsize=$this->cg_get_font_size();
-		$cgtitle='<div id="cgback" class="cgnojs '.$this->params['showtitle'].'"></div><div id="cgtitle" class="cgnojs '.$this->params['showtitle'].'"><p style="font-size:'.$cgfontsize.'px;line-height:'.(1.2*$cgfontsize).'px;"><a href='.$returnlink.'>'.$title.'</a></p></div>';
+		$cgtitle='<div class="cgback cgnojs '.$this->params['showtitle'].'"></div><div class="cgtitle cgnojs '.$this->params['showtitle'].'"><p style="font-size:'.$cgfontsize.'px;line-height:'.(1.2*$cgfontsize).'px;"><a href='.$returnlink.'>'.$title.'</a></p></div>';
 		return $cgtitle;
 	}
 	
@@ -153,14 +153,10 @@ Author : Anshul Sharma (contact@anshulsharma.in)
 
  function cg_init_js(){
  global $paginateVal;
-?>
-    <script type="text/javascript" language="javascript">
-    <?php
+    echo '<script type="text/javascript">';
     echo 'paginateVal = '.$paginateVal.';';
-    ?>
-    </script>
-<?php 
-   do_action('cg_init_js');
+    echo '</script>';
+    do_action('cg_init_js');
 }
 
 function get_cg_option($option) {

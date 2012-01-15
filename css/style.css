@@ -24,50 +24,52 @@ div.cgview ul li{
 }
 
 div.cgview ul li:hover {border:4px solid;}
-div.cgview ul li div#cgtitle{height:0%;overflow:hidden;z-index:3;position:absolute;bottom:0;left:0;width:inherit;}
-div.cgview ul li div#cgtitle p{width:inherit;}
-div.cgview ul li div#cgback{
+div.cgview ul li div.cgtitle{height:0%;overflow:hidden;z-index:3;position:absolute;bottom:0;left:0;width:inherit;}
+div.cgview ul li div.cgtitle p{width:inherit;}
+div.cgview ul li div.cgback{
 					height:0%;overflow:hidden;z-index:2;position:absolute;bottom:0;left:0;width:inherit;
 					filter:alpha(opacity=60);
  					opacity:0.6;
 }
-div.cgview ul li div#cgtitle p a{font-family:Geneva, Arial, Helvetica, sans-serif;text-decoration:none;}
+div.cgview ul li div.cgtitle p a{font-family:Geneva, Arial, Helvetica, sans-serif;text-decoration:none;}
 
 /* Light Theme */
 div.cgview.light ul li{border-color: #aaa;}
 div.cgview.light ul li:hover{border-color: #ccc;}
-div.cgview.light ul li div#cgback{background-color:#fff;}
-div.cgview.light ul li div#cgtitle p a{color:#000;}
+div.cgview.light ul li div.cgback{background-color:#fff;}
+div.cgview.light ul li div.cgtitle p a{color:#000;}
 
 /* Dark Theme */
 div.cgview.dark ul li{border-color: #777;}
 div.cgview.dark ul li:hover{border-color: #555;}
-div.cgview.dark ul li div#cgback{background-color:#000;}
-div.cgview.dark ul li div#cgtitle p a{color:#fff;}
+div.cgview.dark ul li div.cgback{background-color:#000;}
+div.cgview.dark ul li div.cgtitle p a{color:#fff;}
 
 
 /* CSS hover Fallback Strategy : In a case when Javascript is not loaded/disabled,
 	the plugin falls back to a pure css hover effect. */
 
-div.cgview ul li div#cgback.cgnojs.hover, div.cgview ul li div#cgback.cgnojs.never{
+
+div.cgview ul li div.cgback.cgnojs.hover, div.cgview ul li div.cgback.cgnojs.never{
 	display:none;
 	height:35%;
 }
-div.cgview ul li div#cgtitle.cgnojs.hover, div.cgview ul li div#cgtitle.cgnojs.never{
+div.cgview ul li div.cgtitle.cgnojs.hover, div.cgview ul li div.cgtitle.cgnojs.never{
 	display:none;
 	height:32%;
 }
-div.cgview ul li div#cgback.always{
+div.cgview ul li div.cgback.always{
 	display:block;
 	height:35%;
 }
-div.cgview ul li div#cgtitle.always{
+div.cgview ul li div.cgtitle.always{
 	display:block;
 	height:32%;
 }
-div.cgview ul li:hover > div#cgback.cgnojs.hover, div.cgview ul li:hover > div#cgtitle.cgnojs.hover{
+div.cgview ul li:hover > div.cgback.cgnojs.hover, div.cgview ul li:hover > div.cgtitle.cgnojs.hover{
 	display: block;
 }
+
 div#cg-credits{font-family:Arial, Helvetica, sans-serif;font-size:80%;color:#777; text-align:right;}
 div#cg-credits a{color: #3366CC; text-decoration:none;}
 /*Pagination Controls style */
