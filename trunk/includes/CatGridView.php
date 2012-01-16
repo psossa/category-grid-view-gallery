@@ -104,7 +104,7 @@ Author : Anshul Sharma (contact@anshulsharma.in)
 			if(!$title){$title = $single->post_title;}
 		}
 		else { $title = $single->post_title;}
-		$returnlink = ($this->params['lightbox'])? ('"'.$cg_url.'/readme.txt" class="cgpost"') : ('"'.get_permalink($single->ID)).'"';
+		$returnlink = ($this->params['lightbox'])? ('"'.$cg_url.'/includes/CatGridPost.php?ID='.$single->ID.'" class="cgpost"') : ('"'.get_permalink($single->ID)).'"';
 		$cgfontsize=$this->cg_get_font_size();
 		$cgtitle='<div class="cgback cgnojs '.$this->params['showtitle'].'"></div><div class="cgtitle cgnojs '.$this->params['showtitle'].'"><p style="font-size:'.$cgfontsize.'px;line-height:'.(1.2*$cgfontsize).'px;"><a href='.$returnlink.'>'.$title.'</a></p></div>';
 		return $cgtitle;
