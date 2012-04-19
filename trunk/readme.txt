@@ -79,8 +79,9 @@ for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgvie
 
 == Changelog ==
 
-**2.2.2**
+**2.2.3**
 
+- Re-Configured to use system cache folder.
 - Updated Timthumb script.
 - A major update to follow. Im sick of timthumb.
 
