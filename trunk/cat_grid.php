@@ -3,7 +3,7 @@
 Plugin Name: Category Grid View Gallery
 Plugin URI: http://evilgenius.anshulsharma.in/cgview
 Description: Display your blog posts differently. This plugin provides a new way to build your Portfolios and Photo Galleries. People who want to show their work using a gallery/portfolio dont have to exclusively install a plugin and upload images on it. Now, you can just upload your work as a blog post every now and then and this plugin will take care of the rest. Usage: Put the [cgview id='xxx'] where you want it to appear. Lots of customizations.
-Version: 2.2.3
+Version: 2.2.4
 Author: Anshul Sharma
 Author URI: http://anshulsharma.in/
 */
@@ -34,7 +34,7 @@ require_once 'includes/Settings.php';
 require_once 'includes/Options.php';
 }
 define('PLUGIN_AUTHOR', 'Anshul Sharma');
-define('PLUGIN_VERSION', '2.2.3');
+define('PLUGIN_VERSION', '2.2.4');
 define('AUTHOR_URI','http://evilgenius.anshulsharma.in/');
 define('PLUGIN_URI','http://evilgenius.anshulsharma.in/cgview');
 

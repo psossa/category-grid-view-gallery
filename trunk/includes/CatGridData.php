@@ -35,17 +35,18 @@ class CatGridData{
         $lcp_category = 'cat=' . $this->cgid;
 	
         //Build the query for get_posts()
-        $cgquery = 'cat=' . $this->cgid .
-								'&posts_per_page=' . $this->params['num'] .
-                                '&orderby=' . $this->params['orderby'] .
-                                '&order=' . $this->params['order'] .
-                                '&exclude=' . $this->params['excludeposts'] .
-                                '&tag=' . $this->params['tags'] .
-                                '&offset=' . $this->params['offset'].
-								'&meta_key=' . $this->params['customfield'].
-								'&meta_value=' . $this->params['customfieldvalue'];
-		$tmp_query = new WP_Query;
-		$this->cgposts = $tmp_query->query($cgquery);
+        $cgquery = array(		'cat' => $this->cgid ,
+								'posts_per_page' => $this->params['num'] ,
+                                'orderby' => $this->params['orderby'] ,
+                                'order' => $this->params['order'] ,
+                                'post__not_in' => explode(',',$this->params['excludeposts']) ,
+                                'tag' => $this->params['tags'] ,
+                                'offset' => $this->params['offset'],
+								'meta_key' => $this->params['customfield'],
+								'meta_value' => $this->params['customfieldvalue']
+								);
+		$tmp_query = new WP_Query($cgquery);
+		$this->cgposts = $tmp_query->posts;
        
     }
 
