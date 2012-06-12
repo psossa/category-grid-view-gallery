@@ -79,6 +79,10 @@ for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgvie
 
 == Changelog ==
 
+**2.2.4**
+
+- Fixed issue with wordpress query not excluding posts.
+
 **2.2.3**
 
 - Re-Configured to use system cache folder.

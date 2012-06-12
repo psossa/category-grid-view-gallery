@@ -163,3 +163,4 @@ function get_cg_option($option) {
   $get_cgview_options = get_option('cgview');
   return $get_cgview_options[$option];
 }
+
