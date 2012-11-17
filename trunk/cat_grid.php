@@ -3,7 +3,7 @@
 Plugin Name: Category Grid View Gallery
 Plugin URI: http://evilgenius.anshulsharma.in/cgview
 Description: Display your blog posts differently. This plugin provides a new way to build your Portfolios and Photo Galleries. People who want to show their work using a gallery/portfolio dont have to exclusively install a plugin and upload images on it. Now, you can just upload your work as a blog post every now and then and this plugin will take care of the rest. Usage: Put the [cgview id='xxx'] where you want it to appear. Lots of customizations.
-Version: 2.2.4
+Version: 2.3
 Author: Anshul Sharma
 Author URI: http://anshulsharma.in/
 */
@@ -140,7 +140,5 @@ add_action( 'wp_print_scripts', 'enqueue_cg_scripts' );
 add_action( 'wp_print_styles', 'enqueue_cg_styles' );
 add_action( 'init', 'cg_set_locations' );
 add_action( 'wp_print_footer_scripts', 'cg_init_js' );
-
-
 
 add_shortcode( 'cgview', array('CatGrid', 'cat_grid') );
