@@ -78,6 +78,11 @@ for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgvie
 3. Post opened inside a lightbox
 
 == Changelog ==
+
+**2.3.2**
+
+- Security Fix : protection against cross site scripting
+
 **2.3.1**
 
 - Fixed minor bug : Image quality can now be changed.
