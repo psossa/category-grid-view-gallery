@@ -4,11 +4,14 @@ The file to load the post content in Colorbox. DO NOT REMOVE wp-config.php inclu
 it is needed for using wordpress functions.
 Author : Anshul Sharma (contact@anshulsharma.in)
  */
+
 if(!function_exists('get_post'))
 {
 require_once("../../../../wp-load.php");
 
 }
+if (!isset($_GET["ID"]) || intval($_GET["ID"]) == 0) die("Wrong parameters");
+
 $theID =$_GET["ID"];
 
 //Meta information about the post
