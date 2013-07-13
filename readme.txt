@@ -3,7 +3,7 @@ Contributors: Anshul Sharma
 Donate link: http://www.evilgenius.anshulsharma.in/donate-me/
 Tags: category,grid,portfolio,gallery,shortcode,lightbox,featured
 Requires at least: 2.0.2
-Tested up to: 3.4.2
+Tested up to: 3.5.1
 Stable tag: trunk
 
 Generates a grid view of the Images grabbed from posts of a category and displays the image and titles using a shortcode. Awesome for portfolios.
@@ -79,7 +79,7 @@ for more support visit the <a href=\"http://www.evilgenius.anshulsharma.in/cgvie
 
 == Changelog ==
 
-**2.3.2**
+**2.3.3**
 
 - Security Fix : protection against cross site scripting
 
